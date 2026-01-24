@@ -6,7 +6,7 @@ namespace Lab2
 {
     internal class Blacksmith(string name, Task? task = null) : Employee(35000, "Blacksmith", name)
     {
-        Task? task = task;
+        public Task? task = task;
 
         public void perform(Blacksmith? blacksmith = null)
         {
