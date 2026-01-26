@@ -11,7 +11,7 @@ namespace Lab2
 
         internal IEvaluator Evaluator { get => evaluator; set => evaluator = value; }
 
-        public void evaluate(IEvaluated evaluated, int scale)
+        private void evaluate(IEvaluated evaluated, int scale)
         {
             Person person = evaluated as Person;
             if(Evaluator != null)
@@ -23,6 +23,11 @@ namespace Lab2
                 Console.WriteLine(this.Name + " evaluated " + person.Name + " Likert score: " + scale);
             }
             
+        }
+
+        public void doJob(IEvaluated evaluated, int scale)
+        {
+            this.evaluate(evaluated, scale);
         }
     }
 }

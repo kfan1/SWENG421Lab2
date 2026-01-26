@@ -11,7 +11,7 @@ namespace Lab2
 
         internal ISender Sender { get => sender; set => sender = value; }
 
-        public void send(string msg, List<Employee> employees)
+        private void send(string msg, List<Employee> employees)
         {
             if(Sender != null)
             {
@@ -22,6 +22,11 @@ namespace Lab2
                 Console.WriteLine(this.Name + " sends message:");
             }
             employees.ForEach(e => { Console.WriteLine(e.Name + ", " + msg); });
+        }
+
+        public void doJob(string msg, List<Employee> employees)
+        {
+            this.send(msg, employees);
         }
     }
 }

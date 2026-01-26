@@ -12,7 +12,7 @@ namespace Lab2
         internal Employee Employee { get => employee; set => employee = value; }
         internal Task? Task { get => task; set => task = value; }
 
-        public void perform(Blacksmith? blacksmith = null)
+        private void perform(Blacksmith? blacksmith = null)
         {
             if(this.Task != null)
             {
@@ -26,6 +26,11 @@ namespace Lab2
             {
                 Console.WriteLine(this.Name + " is helping " + blacksmith.Name + " perform task " + blacksmith.Task.Id);
             }
+        }
+
+        public void doJob(Blacksmith? blacksmith = null)
+        {
+            this.perform(blacksmith);
         }
     }
 }
