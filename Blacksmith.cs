@@ -16,15 +16,15 @@ namespace Lab2
         {
             if(this.Task != null)
             {
-                Console.WriteLine(this.Name + " is performing his task " + this.Task.id);
+                Console.WriteLine(this.Name + " is performing his task " + this.Task.Id);
             }
             if(this.Employee != null)
             {
-                Console.WriteLine(this.Employee.Name + " is helping " + this.Name + " perform task " + this.Task.id);
+                Console.WriteLine(this.Employee.Name + " is helping " + this.Name + " perform task " + this.Task.Id);
             }
             if(blacksmith != null && blacksmith.Task != null)
             {
-                Console.WriteLine(this.Name + " is helping " + blacksmith.Name + " perform task " + blacksmith.Task.id);
+                Console.WriteLine(this.Name + " is helping " + blacksmith.Name + " perform task " + blacksmith.Task.Id);
             }
         }
     }
