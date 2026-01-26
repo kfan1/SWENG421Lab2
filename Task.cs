@@ -4,8 +4,10 @@ using System.Text;
 
 namespace Lab2
 {
-    internal class Task(string taskName)
+    internal class Task(string id)
     {
-        public string taskName = taskName;
+        public string id = id;
+        public string dueDate;
+        public string description;
     }
 }

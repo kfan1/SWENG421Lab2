@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab2
 {
-    internal interface IEvaluator
+    internal interface IEvaluated
     {
     }
 }

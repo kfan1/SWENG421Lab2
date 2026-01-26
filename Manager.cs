@@ -1,33 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Linq;
 
 namespace Lab2
 {
-    internal class Manager(string name) : Employee(50000, "Manager", name), IEvaluator
+    internal class Manager(string name) : Employee(50000, "Manager", name), ISender, IEvaluator
     {
-        public void evaluate(Accountant employee, int scale)
-        {
-            Console.WriteLine(this.name + " evaluated " + employee.name + " Likert score: " + scale);
-        }
+        public IEvaluator evaluator;
 
-        public void evaluate(Blacksmith employee, int scale)
+        public void evaluate(IEvaluated evaluated, int scale)
         {
-            Console.WriteLine(this.name + " evaluated " + employee.name + " Likert score: " + scale);
-        }
-
-        public void requestHelp(IEvaluator evaluator)
-        {
-            if (evaluator is Manager)
+            Person person = evaluated as Person;
+            if(evaluator != null)
             {
-                Manager? manager = evaluator as Manager;
-                Console.WriteLine(this.name + " requests help from " + manager.name + " with evaluation");
-            }
-            else
+                Person evaluatorPerson = this.evaluator as Person;
+                Console.WriteLine(evaluatorPerson.name + " evaluated " + person.name + " Likert score: " + scale);
+            } else
             {
-                Owner? owner = evaluator as Owner;
-                Console.WriteLine(this.name + " requests help from " + owner.name + " with evaluation");
+                Console.WriteLine(this.name + " evaluated " + person.name + " Likert score: " + scale);
             }
+            
         }
     }
 }
