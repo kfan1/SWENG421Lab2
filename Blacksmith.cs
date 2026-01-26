@@ -6,22 +6,25 @@ namespace Lab2
 {
     internal class Blacksmith(string name, Task? task = null) : Employee(35000, "Blacksmith", name), IEvaluated
     {
-        public Employee employee;
-        public Task? task = task;
+        private Employee employee;
+        private Task? task = task;
+
+        internal Employee Employee { get => employee; set => employee = value; }
+        internal Task? Task { get => task; set => task = value; }
 
         public void perform(Blacksmith? blacksmith = null)
         {
-            if(this.task != null)
+            if(this.Task != null)
             {
-                Console.WriteLine(this.name + " is performing his task " + this.task.id);
+                Console.WriteLine(this.Name + " is performing his task " + this.Task.id);
             }
-            if(this.employee != null)
+            if(this.Employee != null)
             {
-                Console.WriteLine(this.employee.name + " is helping " + this.name + " perform task " + this.task.id);
+                Console.WriteLine(this.Employee.Name + " is helping " + this.Name + " perform task " + this.Task.id);
             }
-            if(blacksmith != null && blacksmith.task != null)
+            if(blacksmith != null && blacksmith.Task != null)
             {
-                Console.WriteLine(this.name + " is helping " + blacksmith.name + " perform task " + blacksmith.task.id);
+                Console.WriteLine(this.Name + " is helping " + blacksmith.Name + " perform task " + blacksmith.Task.id);
             }
         }
     }

@@ -7,19 +7,21 @@ namespace Lab2
 {
     internal class Owner(string name) : Person(name, null, "Owner"), ISender, IEvaluator
     {
-        public ISender sender;
+        private ISender sender;
+
+        internal ISender Sender { get => sender; set => sender = value; }
 
         public void send(string msg, List<Employee> employees)
         {
-            if(sender != null)
+            if(Sender != null)
             {
-                Person person = sender as Person;
-                Console.WriteLine(person.name + " sends message:");
+                Person person = Sender as Person;
+                Console.WriteLine(person.Name + " sends message:");
             } else
             {
-                Console.WriteLine(this.name + " sends message:");
+                Console.WriteLine(this.Name + " sends message:");
             }
-            employees.ForEach(e => { Console.WriteLine(e.name + ", " + msg); });
+            employees.ForEach(e => { Console.WriteLine(e.Name + ", " + msg); });
         }
     }
 }

@@ -6,8 +6,8 @@ namespace Lab2
 {
     internal class Task(string id)
     {
-        public string id = id;
-        public string dueDate;
-        public string description;
+        private string id = id;
+        private string dueDate;
+        private string description;
     }
 }

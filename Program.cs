@@ -15,31 +15,31 @@ Blacksmith blacksmithAmy = new Blacksmith("Amy", t2);
 Blacksmith blacksmithLin = new Blacksmith("Lin", t3);
 Blacksmith blacksmithGreg = new Blacksmith("Greg", t1);
 Company XYZCompany = new Company();
-XYZCompany.Employees.Add(managerJohn);
-XYZCompany.Employees.Add(managerMary);
-XYZCompany.Employees.Add(accountantJane);
-XYZCompany.Employees.Add(accountantJoe);
-XYZCompany.Employees.Add(blacksmithJack);
-XYZCompany.Employees.Add(blacksmithKatie);
-XYZCompany.Employees.Add(blacksmithAmy);
-XYZCompany.Employees.Add(blacksmithLin);
-XYZCompany.Employees.Add(blacksmithGreg);
-XYZCompany.Owner = ownerCraig;
+XYZCompany.Employees1.Add(managerJohn);
+XYZCompany.Employees1.Add(managerMary);
+XYZCompany.Employees1.Add(accountantJane);
+XYZCompany.Employees1.Add(accountantJoe);
+XYZCompany.Employees1.Add(blacksmithJack);
+XYZCompany.Employees1.Add(blacksmithKatie);
+XYZCompany.Employees1.Add(blacksmithAmy);
+XYZCompany.Employees1.Add(blacksmithLin);
+XYZCompany.Employees1.Add(blacksmithGreg);
+XYZCompany.Owner1 = ownerCraig;
 
 // Owner sends good job to John, Jane, and Jack
 ownerCraig.send("Good Job", [managerJohn, accountantJane, blacksmithJack]);
 // Amy delegates Greg for help on her task2
-blacksmithAmy.employee = blacksmithGreg;
+blacksmithAmy.Employee = blacksmithGreg;
 // Greg performs his own task and helps amy with task2
 blacksmithGreg.perform(blacksmithAmy);
 // Accountant Jane increases Greg's salary by $1000
-accountantJane.update(blacksmithGreg.getSalary() + 1000, blacksmithGreg);
+accountantJane.update(blacksmithGreg.Salary + 1000, blacksmithGreg);
 // Lin delegates Jane for help on her task3
-blacksmithLin.employee = accountantJane;
+blacksmithLin.Employee = accountantJane;
 // Lin performs task 3 and Jane helps
 blacksmithLin.perform();
 // John delegates Craig to perform his evaluations
-managerJohn.evaluator = ownerCraig;
+managerJohn.Evaluator = ownerCraig;
 // Craig evaluates Jack on John's behalf
 managerJohn.evaluate(blacksmithJack, 4);
 // Mary evaluates Katie

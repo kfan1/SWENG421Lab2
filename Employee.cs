@@ -8,14 +8,11 @@ namespace Lab2
     {
         private int salary = salary;
 
+        public int Salary { get => salary; private set => salary = value; }
+
         protected void setSalary(int salary, Employee employee)
         {
-            employee.salary = salary;
-        }
-
-        public int getSalary()
-        {
-            return salary; 
+            employee.Salary = salary;
         }
     }
 }
