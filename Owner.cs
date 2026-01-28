@@ -5,12 +5,12 @@ using System.Xml.Linq;
 
 namespace Lab2
 {
-    internal class Owner(string name) : Person(name, null, "Owner"), ISender
+    internal class Owner(string name) : Person(name, null, "Owner")
     {
-        private Manager helpsManager;
+        private IManager helpsManager;
         private ISender delegatee;
 
-        internal Manager HelpsManager { get => helpsManager; set => helpsManager = value; }
+        internal IManager HelpsManager { get => helpsManager; set => helpsManager = value; }
         internal ISender Delegatee { get => delegatee; set => delegatee = value; }
 
         private void send(string msg, List<Employee> employees)

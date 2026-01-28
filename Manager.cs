@@ -5,11 +5,11 @@ using System.Xml.Linq;
 
 namespace Lab2
 {
-    internal class Manager(string name) : Employee(50000, "Manager", name), ISender
+    internal class Manager(string name) : Employee(50000, "Manager", name), ISender, IManager
     {
-        private Manager helpsManager;
+        private IManager helpsManager;
 
-        internal Manager HelpsManager { get => helpsManager; set => helpsManager = value; }
+        internal IManager HelpsManager { get => helpsManager; set => helpsManager = value; }
 
         private void evaluate(IEvaluated evaluated, int scale)
         {

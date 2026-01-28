@@ -5,11 +5,11 @@ using System.Xml.Linq;
 
 namespace Lab2
 {
-    internal class Accountant(string name) : Employee(45000, "Accountant", name), ISender, IEvaluated
+    internal class Accountant(string name) : Employee(45000, "Accountant", name), ISender, IEvaluated, IAccountant
     {
-        private Accountant helpsAccountant;
+        private IAccountant helpsAccountant;
 
-        internal Accountant HelpsAccountant { get => helpsAccountant; set => helpsAccountant = value; }
+        internal IAccountant HelpsAccountant { get => helpsAccountant; set => helpsAccountant = value; }
 
         private void update(int salary, Employee employee)
         {
