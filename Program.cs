@@ -28,19 +28,19 @@ XYZCompany.Owner1 = ownerCraig;
 
 // Owner sends good job to John, Jane, and Jack
 ownerCraig.doJob("Good Job", [managerJohn, accountantJane, blacksmithJack]);
-// Amy delegates Greg for help on her task2
-blacksmithAmy.Employee = blacksmithGreg;
+// Greg helps Amy
+blacksmithGreg.HelpsBlacksmith = blacksmithAmy;
 // Greg performs his own task and helps amy with task2
-blacksmithGreg.doJob(blacksmithAmy);
-// Accountant Jane increases Greg's salary by $1000
+blacksmithGreg.doJob();
+// Jane helps Lin
+accountantJane.HelpsBlacksmith = blacksmithLin;
+// Jane increases Greg's salary by $1000
 accountantJane.doJob(blacksmithGreg.Salary + 1000, blacksmithGreg);
-// Lin delegates Jane for help on her task3
-blacksmithLin.Employee = accountantJane;
-// Lin performs task 3 and Jane helps
-blacksmithLin.doJob();
-// John delegates Craig to perform his evaluations
-managerJohn.Evaluator = ownerCraig;
+// Jane helps Lin perform task 3
+accountantJane.HelpsBlacksmith.doJob();
+// Craig helps John
+ownerCraig.HelpsManager = managerJohn;
 // Craig evaluates Jack on John's behalf
-managerJohn.doJob(blacksmithJack, 4);
+ownerCraig.HelpsManager.doJob(blacksmithJack, 4);
 // Mary evaluates Katie
 managerMary.doJob(blacksmithKatie, 5);

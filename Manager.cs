@@ -5,29 +5,31 @@ using System.Xml.Linq;
 
 namespace Lab2
 {
-    internal class Manager(string name) : Employee(50000, "Manager", name), ISender, IEvaluator
+    internal class Manager(string name) : Employee(50000, "Manager", name), ISender
     {
-        private IEvaluator evaluator;
+        private Manager helpsManager;
 
-        internal IEvaluator Evaluator { get => evaluator; set => evaluator = value; }
+        internal Manager HelpsManager { get => helpsManager; set => helpsManager = value; }
 
         private void evaluate(IEvaluated evaluated, int scale)
         {
             Person person = evaluated as Person;
-            if(Evaluator != null)
-            {
-                Person evaluatorPerson = this.Evaluator as Person;
-                Console.WriteLine(evaluatorPerson.Name + " evaluated " + person.Name + " Likert score: " + scale);
-            } else
-            {
-                Console.WriteLine(this.Name + " evaluated " + person.Name + " Likert score: " + scale);
-            }
-            
+            Console.WriteLine(person.Name + " Likert score: " + scale);
+        }
+
+        private void send(string msg, List<Employee> employees)
+        {
+            employees.ForEach(e => { Console.WriteLine(e.Name + ", " + msg); });
         }
 
         public void doJob(IEvaluated evaluated, int scale)
         {
             this.evaluate(evaluated, scale);
+        }
+
+        public void doDelegatedJob(string msg, List<Employee> employees)
+        {
+            this.send(msg, employees);
         }
     }
 }
