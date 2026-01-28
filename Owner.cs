@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace Lab2
 {
-    internal class Owner(string name) : Person(name, null, "Owner")
+    internal class Owner(string name) : Person(name, null, "Owner"), ISender
     {
         private Manager helpsManager;
         private ISender delegatee;

@@ -7,5 +7,6 @@ namespace Lab2
 {
     internal interface ISender
     {
+        public abstract void doDelegatedJob(string msg, List<Employee> employees);
     }
 }
