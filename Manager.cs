@@ -5,11 +5,13 @@ using System.Xml.Linq;
 
 namespace Lab2
 {
-    internal class Manager(string name) : Employee(50000, "Manager", name), ISender, IManager
+    internal class Manager(string name) : Employee(50000, "Manager", name), IManager
     {
         private IManager helpsManager;
+        private IOwner helpsOwner;
 
         internal IManager HelpsManager { get => helpsManager; set => helpsManager = value; }
+        internal IOwner HelpsOwner { get => helpsOwner; set => helpsOwner = value; }
 
         private void evaluate(IEvaluated evaluated, int scale)
         {
@@ -17,19 +19,9 @@ namespace Lab2
             Console.WriteLine(person.Name + " Likert score: " + scale);
         }
 
-        private void send(string msg, List<Employee> employees)
-        {
-            employees.ForEach(e => { Console.WriteLine(e.Name + ", " + msg); });
-        }
-
         public void doJob(IEvaluated evaluated, int scale)
         {
             this.evaluate(evaluated, scale);
-        }
-
-        public void doDelegatedJob(string msg, List<Employee> employees)
-        {
-            this.send(msg, employees);
         }
     }
 }

@@ -5,11 +5,13 @@ using System.Xml.Linq;
 
 namespace Lab2
 {
-    internal class Accountant(string name) : Employee(45000, "Accountant", name), ISender, IEvaluated, IAccountant
+    internal class Accountant(string name) : Employee(45000, "Accountant", name), IEvaluated, IAccountant
     {
         private IAccountant helpsAccountant;
+        private IOwner helpsOwner;
 
         internal IAccountant HelpsAccountant { get => helpsAccountant; set => helpsAccountant = value; }
+        internal IOwner HelpsOwner { get => helpsOwner; set => helpsOwner = value; }
 
         private void update(int salary, Employee employee)
         {
@@ -17,19 +19,9 @@ namespace Lab2
             Console.WriteLine(employee.Name + " salary udpated to " +  salary);
         }
 
-        private void send(string msg, List<Employee> employees)
-        {
-            employees.ForEach(e => { Console.WriteLine(e.Name + ", " + msg); });
-        }
-
         public void doJob(int salary, Employee employee)
         {
             this.update(salary, employee);
-        }
-
-        public void doDelegatedJob(string msg, List<Employee> employees)
-        {
-            this.send(msg, employees);
         }
     }
 }
