@@ -1,6 +1,7 @@
 ﻿using Lab2;
 using Task = Lab2.Task;
 
+// Defining and creating all the employees and classes
 Owner ownerCraig = new Owner("Craig");
 Task t1 = new Task("t1");
 Task t2 = new Task("t2");
@@ -30,7 +31,7 @@ XYZCompany.Owner1 = ownerCraig;
 ownerCraig.doJob("Good Job", [managerJohn, accountantJane, blacksmithJack]);
 // Greg helps Amy
 blacksmithGreg.HelpsBlacksmith = blacksmithAmy;
-// Greg performs his own task and helps amy with task2
+// Greg performs his own task1 and helps amy with task2
 blacksmithGreg.doJob();
 // Jane helps Lin
 accountantJane.HelpsBlacksmith = blacksmithLin;
